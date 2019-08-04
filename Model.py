@@ -14,6 +14,9 @@ def construct_model(num_classes):
     # construt dense layers
     top_model = Sequential()
     top_model.add(Flatten(input_shape=resnet.output_shape[1:]))
+    top_model.add(Dense(256))
+    top_model.add(Activation('relu'))
+    top_model.add(Dropout(0.5))
     top_model.add(Dense(num_classes))
     top_model.add(Activation('softmax'))
 
